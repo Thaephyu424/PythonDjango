@@ -15,6 +15,13 @@ class Student(models.Model):
     def __str__(self):
         return self.stu_name
 
+class Teacher(models.Model):
+    teacher_name = models.CharField(max_length=50)
+    
+   # return in sting
+    def __str__(self):
+        return self.teacher_name
+
 class MyBlog(models.Model):
     category = models.ForeignKey(Category,on_delete= models.CASCADE)
     title = models.CharField(max_length=50)
