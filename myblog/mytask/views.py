@@ -9,10 +9,12 @@ def about(request):
 def home(request):
     title = "My Blog Title"
     cat_data = Category.objects.all()
+    name=Student.objects.all()
     contex = {
         'abc':title,
         'name':'Mg Mg',
-        'datas':cat_data
+        'datas':cat_data,
+        'name':name
     }
     return render(request,'home.html',contex)
 
@@ -49,4 +51,13 @@ def saveBlog(request):
     # //redirect to home page
     return redirect('/home')
 # retun redirect({% urls home%})//redirectToHomePageInURLSName
+
+def createStudent(request):
+    return render(request,'createStudent.html')
+
+def saveStudent(request):
+    stuName = request.POST.get('name')
+    Student.objects.create(stu_name=stuName)
+    # return render(request,'createStudent.html')
+    return redirect('/home')
 

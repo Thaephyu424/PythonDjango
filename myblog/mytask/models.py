@@ -8,6 +8,12 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+class Student(models.Model):
+    stu_name = models.CharField(max_length=50)
+
+    # return in sting
+    def __str__(self):
+        return self.stu_name
 
 class MyBlog(models.Model):
     category = models.ForeignKey(Category,on_delete= models.CASCADE)
