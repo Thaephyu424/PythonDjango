@@ -24,4 +24,5 @@ urlpatterns = [
     path('home/',views.home),
     path('create/', views.createBlog),
     path('saveBlog/', views.saveBlog),
+    
 ]
