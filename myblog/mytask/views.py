@@ -9,14 +9,12 @@ def about(request):
 def home(request):
     title = "My Blog Title"
     cat_data = Category.objects.all()
-    name=Student.objects.all()
-    teacher_name=Teacher.objects.all()
+    blogs = MyBlog.objects.all()
     contex = {
         'abc':title,
         'name':'Mg Mg',
         'datas':cat_data,
-        'name':name,
-        'teacherName':teacher_name
+        'blogs':blogs
     }
     return render(request,'home.html',contex)
 
@@ -54,21 +52,25 @@ def saveBlog(request):
     return redirect('/home')
 # retun redirect({% urls home%})//redirectToHomePageInURLSName
 
-def createStudent(request):
-    return render(request,'createStudent.html')
+def filterblog(request):
+    cid = request.GET.get('cid')
+    cat_obj = Category.objects.get(id=cid) 
+    filter_data = MyBlog.objects.filter(category=cat_obj) #selectFromMyBlogDatabase
+    context = {
+        'blogs' : filter_data 
+    }
+    return render(request,'home.html',context)
 
-def saveStudent(request):
-    stuName = request.POST.get('name')
-    Student.objects.create(stu_name=stuName)
-    # return render(request,'createStudent.html')
-    return redirect('/home')
+def detailblog(request,blogid):
+    blog = MyBlog.objects.get(id =blogid )
+    context = {
+        'blog' : blog
+    }
+    print(blogid)
+    return render(request,'detailblog.html',context)
 
-def createTeacher(request):
-    return render(request,'createTeacher.html')
 
-def saveTeacher(request):
-    teacherName = request.POST.get('teacherName')
-    Teacher.objects.create(teacher_name=teacherName)
-    # return render(request,'createStudent.html')
-    return redirect('/home')
+
+
+
 

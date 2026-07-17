@@ -1,23 +1,29 @@
 
 
 <ul class="list-group">
-
-  {% for data in datas%}
-  <li class="list-group-item">{{data}}</li>
-{% endfor %}
+  {% for data in datas %}
+    <a href="/filterblog/?cid={{data.id}}">{{ data }}</a>
+  {% endfor %}
 </ul>
-
-
-<ul class="list-group">
-
-  {% for data in name%}
-  <li class="list-group-item">{{data}}</li>
-{% endfor %}
-</ul>
-
-<ul class="list-group">
-
-  {% for data in teacherName%}
-  <li class="list-group-item">{{data}}</li>
-{% endfor %}
-</ul>
+<h1>Display Blogs</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Created Date</th>
+       <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for blog in blogs%}
+    <tr>
+      <th scope="row">{{blog.category}}</th>
+      <th scope="row">{{blog.title}}</th>
+      <th scope="row">{{blog.created_date}}</th>
+      <th scope="row"><a href="/detail/{{blog.id}}/">details</a></th>
+   {% endfor %}
+    </tr>
+   
+  </tbody>
+</table>  

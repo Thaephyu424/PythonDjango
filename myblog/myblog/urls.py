@@ -24,8 +24,6 @@ urlpatterns = [
     path('home/',views.home),
     path('create/', views.createBlog),
     path('saveBlog/', views.saveBlog),
-    path('createStudent/',views.createStudent),
-    path('saveStudent/',views.saveStudent),
-    path('createTeacher/',views.createTeacher),
-    path('saveTeacher/',views.saveTeacher)
+    path('filterblog/',views.filterblog,name='filterblog'),
+    path('detail/<int:blogid>/',views.detailblog,name='detailblog')
 ]
