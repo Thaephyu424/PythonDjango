@@ -63,10 +63,18 @@ def filterblog(request):
 
 def detailblog(request,blogid):
     blog = MyBlog.objects.get(id =blogid )
+    if request.method == 'POST':
+        title = request.POST.get('title') #theseAreDataFromInputOfHTMLFile
+        pbody = request.POST.get('post_blog')#theseAreDataFromInputOfHTMLFile
+        blogs = MyBlog.objects.filter(id =blogid )
+        blogs.update(title=title,post_blog=pbody)#UpdateThoseDataToDatabase
+        # blogs.save() #wedon'tNeedToSaveThoseDataInUpdate 
+        return redirect('/home')
+        
     context = {
         'blog' : blog
     }
-    print(blogid)
+ 
     return render(request,'detailblog.html',context)
 
 

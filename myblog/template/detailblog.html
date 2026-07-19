@@ -1,2 +1,7 @@
-{{blog.title}}
-{{blog.post_blog}}
+<form action="" method="post">{% csrf_token %}
+    <input type="text" name="title" id="" value="{{blog.title}}">
+    <textarea name="post_blog" id="" cols="30" rows="10">
+        {{blog.post_blog}}
+    </textarea>
+    <button type="submit">Update</button>
+</form>
