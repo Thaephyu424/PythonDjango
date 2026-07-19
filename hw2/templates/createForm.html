@@ -1,0 +1,12 @@
+<form action="/saveForm/" method="POST">{% csrf_token %} 
+
+    <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Album Name</label>
+  <input name="albumName"class="form-control" id="exampleFormControlInput1" placeholder="album name">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">contant</label>
+  <textarea name="content"class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <button class="submit">Submit</button>
+</div>
+</form>

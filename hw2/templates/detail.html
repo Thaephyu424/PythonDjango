@@ -1,0 +1,13 @@
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+<h1>details page</h1>
+
+
+<div class="card" style="width: 18rem;">
+ 
+  <div class="card-body">
+    <h5 class="card-title">{{blogWithID.title}}</h5>
+    <p class="card-text">{{blogWithID.post_body}}</p>
+   <button><a href="/edit/{{blogWithID.id}}" class="btn">Edit</a></button>
+  </div>
+</div>
